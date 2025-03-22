@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Heart Shape */
+.heart {
+    background-color: #ff66b2;
+    display: inline-block;
+    height: 30px;
+    margin: 0 10px;
+    position: relative;
+    top: 0;
+    transform: rotate(-45deg);
+    width: 30px;
+    animation: floatHeart 10s ease-in-out infinite;
+    opacity: 0;
+  }
+  
+  .heart:before,
+  .heart:after {
+    content: "";
+    background-color: #ff66b2;
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+  }
+  
+  .heart:before {
+    top: -15px;
+    left: 0;
+  }
+  
+  .heart:after {
+    left: 15px;
+    top: 0;
+  }
+  
+  /* Floating Heart Animation */
+  @keyframes floatHeart {
+    0% {
+      opacity: 0;
+      transform: translateY(100vh) rotate(-45deg); /* Start off-screen below */
+    }
+    25% {
+      opacity: 1;
+      transform: translateY(-30vh) rotate(-45deg); /* Move upwards */
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-60vh) rotate(-45deg); /* Float upwards */
+    }
+    75% {
+      opacity: 1;
+      transform: translateY(-30vh) rotate(-45deg); /* Float back down */
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(100vh) rotate(-45deg); /* End off-screen below */
+    }
+  }
+  
+  /* Add Randomness to Each Heart */
+  .floating-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    animation: none; /* Ensure the container has no animation */
+  }
+  
+  /* Delay for each heart to start */
+  .heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  .heart:nth-child(2) {
+    left: 20%;
+    animation-delay: 2s;
+  }
+  
+  .heart:nth-child(3) {
+    left: 30%;
+    animation-delay: 1s;
+  }
+  
+  .heart:nth-child(4) {
+    left: 40%;
+    animation-delay: 3s;
+  }
+  
+  .heart:nth-child(5) {
+    left: 50%;
+    animation-delay: 0.5s;
+  }
+  
+  .heart:nth-child(6) {
+    left: 60%;
+    animation-delay: 4s;
+  }
+  
+  .heart:nth-child(7) {
+    left: 70%;
+    animation-delay: 1.5s;
+  }
+  
+
+  html, body, #root {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #ffe4e6; /* Matches the navbar background */
+    width: 100vw; /* Forces full viewport width */
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+
+
+  /* Floating petals */
+.petal {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 182, 193, 0.7); /* Light pink */
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: float 5s linear infinite;
+}
+
+.petal:nth-child(1) {
+  top: 0;
+  left: 10%;
+  animation-duration: 6s;
+}
+
+.petal:nth-child(2) {
+  top: 20%;
+  left: 30%;
+  animation-duration: 7s;
+}
+
+.petal:nth-child(3) {
+  top: 50%;
+  left: 70%;
+  animation-duration: 5s;
+}
+
+.petal:nth-child(4) {
+  top: 80%;
+  left: 50%;
+  animation-duration: 6s;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+/* Flower design */
+.flower {
+  position: relative;
+  background-color: #ffc0cb;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.flower:hover {
+  transform: scale(1.1);
+}
+
+.memory {
+  display: none;
+  position: absolute;
+  top: 110%;
+  background-color: #ffb6c1;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.flower:hover .memory {
+  display: block;
+}

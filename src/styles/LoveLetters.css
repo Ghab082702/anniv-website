@@ -1,0 +1,184 @@
+/* Container */
+.love-container {
+  min-height: 100vh;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Envelope Wrapper */
+.envelope-wrapper {
+  position: relative;
+  width: 160px;
+  height: 120px;
+}
+
+.envelope-wrapper:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Envelope Design */
+.envelope {
+  width: 100%;
+  height: 100%;
+  background-color: #fff; /* Clean white envelope */
+  border: 2px solid #ffb6c1; /* Soft pink border */
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Softer shadow for a gentle look */
+}
+
+/* Flap Animation */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #ffccd5; /* Soft pastel pink flap */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  transition: transform 0.5s ease;
+  z-index: 2; /* Visible above base envelope but behind the letter */
+}
+
+.envelope-wrapper.open .envelope-flap {
+  transform: rotateX(180deg); /* Rotates upwards */
+  z-index: 0; /* Moves behind the letter */
+}
+/* Heart Seal */
+.heart-seal {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffb6c1; /* Matching soft pink heart */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Soft shadow for better visibility */
+  z-index: 2;
+}
+
+/* Paper (Blank Letter) */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #ff4f78; /* Pink flap for contrast */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Soft shadow to create depth */
+  clip-path: polygon(0 0, 100% 0, 50% 100%); /* Triangle flap shape */
+  transform-origin: top;
+  transition: transform 0.4s ease; /* Smooth opening animation */
+  z-index: 2; /* Ensures the flap appears above the paper */
+}
+
+.paper {
+  position: absolute;
+  top: -10px; /* Keeps letter closer to envelope */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 80px;
+  background-color: #fffaf0;
+  border: 2px solid #ff4f78;
+  border-radius: 6px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  z-index: 2; /* Paper slides out below the flap */
+  transition: transform 0.8s ease, opacity 0.4s ease;
+}
+
+/* Open Envelope Flap Animation */
+.envelope-wrapper.open .paper {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-40px); /* Slides out closer and naturally */
+}
+
+
+.envelope-wrapper:hover {
+  animation: bounce 0.6s ease infinite alternate; /* Bouncing effect */
+  transform: translateY(-5px); /* Slight lift for added cuteness */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+}
+
+/* Bouncing Animation */
+@keyframes bounce {
+  0% {
+    transform: translateY(-5px) scale(1); /* Start with a gentle lift */
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05); /* Slight scale-up for charm */
+  }
+  100% {
+    transform: translateY(-5px) scale(1); /* Return to original position */
+  }
+}
+
+.hearts-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3; /* Appear above envelope */
+}
+
+.heart {
+  position: absolute;
+  width: 15px;  /* Reduced size */
+  height: 15px; /* Reduced size */
+  background-color: red;
+  transform: rotate(-45deg);
+  position: relative;
+  animation: burst 2s forwards;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: red;
+  border-radius: 50%;
+  height: 15px;  /* Reduced size */
+  width: 15px;   /* Reduced size */
+  position: absolute;
+}
+
+.heart:before {
+  top: -7.5px; /* Adjusted to match reduced size */
+  left: 0;
+}
+
+.heart:after {
+  left: 7.5px; /* Adjusted to match reduced size */
+  top: 0;
+}
+
+/* Animation for Heart Burst */
+@keyframes burst {
+  0% {
+    transform: translate(0, 0) rotate(-45deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) rotate(-45deg) scale(0.6); /* Smaller final size */
+    opacity: 0;
+  }
+}
+
+
