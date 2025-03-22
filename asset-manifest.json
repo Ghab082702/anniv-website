@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/anniv-website/static/css/main.b754870b.css",
+    "main.js": "/anniv-website/static/js/main.4f6ef3ea.js",
+    "static/js/453.fd6616d3.chunk.js": "/anniv-website/static/js/453.fd6616d3.chunk.js",
+    "index.html": "/anniv-website/index.html",
+    "main.b754870b.css.map": "/anniv-website/static/css/main.b754870b.css.map",
+    "main.4f6ef3ea.js.map": "/anniv-website/static/js/main.4f6ef3ea.js.map",
+    "453.fd6616d3.chunk.js.map": "/anniv-website/static/js/453.fd6616d3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b754870b.css",
+    "static/js/main.4f6ef3ea.js"
+  ]
+}
